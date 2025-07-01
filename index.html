@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blackjack Telegram Mini App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <body>
+  <div class="balance" id="balance">Balance: $500</div>
+  <div class="total-bet" id="totalBet">Total Bet: $0</div>
+  <div class="score-badge" id="playerScore" style="display:none"></div>
+  <div id="dealerDeck" class="dealer-deck"></div>
+  <div id="dealerHand" class="hand dealer-hand"></div>
+  <div id="playerHand" class="hand player-hand"></div>
+  <div class="deck-card"></div>
+  <div class="chip-container">
+    <div class="chip chip-5" onclick="placeBet(5,'chip-5')">5</div>
+    <div class="chip chip-10" onclick="placeBet(10,'chip-10')">10</div>
+    <div class="chip chip-25" onclick="placeBet(25,'chip-25')">25</div>
+    <div class="chip chip-50" onclick="placeBet(50,'chip-50')">50</div>
+    <div class="chip chip-100" onclick="placeBet(100,'chip-100')">100</div>
+    <div class="btn" id="betBtn" onclick="deal()">Bet</div>
+    <div class="btn" id="clearBet" onclick="clearBet()">Clear Bet</div>
+    <div class="btn" id="hitBtn" onclick="hit()">Hit</div>
+    <div class="btn" id="standBtn" onclick="stand()">Stand</div>
+  </div>
+  </body>
+  <script src="game.js"></script>
+</body>
+</html>
