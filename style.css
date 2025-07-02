@@ -1,17 +1,114 @@
- body{margin:0;padding:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:radial-gradient(circle,white 0%,blue 100%);height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:space-between;position:relative;overflow:hidden}
-    .balance{margin-top:10px;font-size:1.2rem;color:#fff;background:rgba(0,0,0,.6);padding:6px 16px;border-radius:20px;font-weight:bold}
-    .total-bet{position:absolute;font-size:1rem;color:#fff;background:rgba(0,0,0,.5);padding:4px 12px;border-radius:15px;font-weight:bold;bottom:130px;left:50%;transform:translateX(-50%)}
-    .dealer-deck{position:absolute;top:20px;left:20px;width:70px;height:98px}
-    .dealer-card{position:absolute;inset:0;background:radial-gradient(circle,white 0%,black 100%);border:2px solid #fff;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,.5)}
-    .playing-card{width:70px;height:98px;background:#fff;border:2px solid #000;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,.5);position:relative;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:bold;user-select:none}
-    .playing-card.red{color:#e74c3c}
-    .playing-card.back{background:radial-gradient(circle,white 0%,black 100%);border-color:#fff;color:transparent}
-    .corner{position:absolute;font-size:.85rem;font-weight:bold;line-height:.85rem}
-    .tl{top:4px;left:4px}
-    .br{bottom:4px;right:4px;transform:rotate(180deg)}
-    .hand{position:absolute;display:flex;gap:12px}
-    .dealer-hand{top:140px;left:50%;transform:translateX(-50%)}
-    .player-hand{bottom:200px;left:50%;transform:translateX(-50%)}
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle, white 0%, blue 100%);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Balance and Betting Info */
+.balance {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.total-bet {
+  position: absolute;
+  bottom: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.score-badge {
+  position: absolute;
+  bottom: 330px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+/* Dealer & Deck */
+.dealer-deck {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 70px;
+  height: 98px;
+}
+
+.deck-card {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 80px;
+  height: 112px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Card_back_01.svg/200px-Card_back_01.svg.png') center/cover;
+  border-radius: 8px;
+}
+
+/* Playing Cards */
+.playing-card,
+.discard-pile .playing-card {
+  width: 70px;
+  height: 98px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  user-select: none;
+}
+
+.playing-card.red {
+  color: #e74c3c;
+}
+
+.playing-card.back {
+  background: radial-gradient(circle, white 0%, black 100%);
+  border-color: #fff;
+  color: transparent;
+}
+
+/* Dealer Card Overlay */
+.dealer-card {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, white 0%, black 100%);
+  border: 2px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Discard Pile */
 .discard-pile {
   position: absolute;
   top: 20px;
@@ -22,44 +119,45 @@
   z-index: 1;
 }
 
-.discard-pile .playing-card {
+/* Corner Labels */
+.corner {
   position: absolute;
-  width: 70px;
-  height: 98px;
-  top: 0;
-  left: 0;
-  background: radial-gradient(circle, white 0%, black 100%);
-  border: 2px solid #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  font-size: 0.85rem;
+  font-weight: bold;
+  line-height: 0.85rem;
 }
 
+.tl {
+  top: 4px;
+  left: 4px;
+}
 
+.br {
+  bottom: 4px;
+  right: 4px;
+  transform: rotate(180deg);
+}
 
-
-
-    .score-badge {
+/* Hands */
+.hand {
   position: absolute;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 4px 10px;
-  border-radius: 15px;
-  font-weight: bold;
-  font-size: .9rem;
-  bottom: 330px; /* moved up */
+  display: flex;
+  gap: 12px;
+}
+
+.dealer-hand {
+  top: 140px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2; /* ensures it's above cards */
 }
 
-    .deck-card{position:absolute;top:20px;right:20px;width:80px;height:112px;background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Card_back_01.svg/200px-Card_back_01.svg.png') center/cover;border-radius:8px}
-    .chip-container{display:flex;gap:12px;margin-bottom:20px;position:relative}
-    .chip{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;font-weight:bold;text-shadow:1px 1px 2px #000;box-shadow:0 0 8px rgba(0,0,0,.6);cursor:pointer;user-select:none;transition:transform .2s}
-    .chip:hover{transform:scale(1.1)}
-    .chip-5{background:#e74c3c}.chip-10{background:#f39c12}.chip-25{background:#27ae60}.chip-50{background:#2980b9}.chip-100{background:#8e44ad}
-    .placed-chip{position:absolute;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;font-weight:bold;text-shadow:1px 1px 2px #000;box-shadow:0 0 8px rgba(0,0,0,.6);pointer-events:none;transform:translateY(20px)}
-    .btn{position:absolute;bottom:70px;padding:8px 14px;border-radius:8px;font-weight:bold;cursor:pointer;display:none;box-shadow:0 2px 5px rgba(0,0,0,.3);color:#fff;user-select:none}
-    .lost-hand {
+.player-hand {
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.lost-hand {
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -68,7 +166,88 @@
   transform: scaleX(-1); /* mirror the cards */
 }
 
-    #clearBet{right:0;background:#c0392b}
-    #betBtn{left:0;background:#27ae60}
-    #hitBtn{left:0;background:#27ae60}
-    #standBtn{right:0;background:#c0392b}
+/* Chips */
+.chip-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.chip,
+.placed-chip {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  user-select: none;
+}
+
+.chip {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.chip:hover {
+  transform: scale(1.1);
+}
+
+.placed-chip {
+  position: absolute;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+
+/* Chip Colors */
+.chip-5 {
+  background: #e74c3c;
+}
+
+.chip-10 {
+  background: #f39c12;
+}
+
+.chip-25 {
+  background: #27ae60;
+}
+
+.chip-50 {
+  background: #2980b9;
+}
+
+.chip-100 {
+  background: #8e44ad;
+}
+
+/* Buttons */
+.btn {
+  position: absolute;
+  bottom: 70px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  user-select: none;
+}
+
+#betBtn,
+#hitBtn {
+  left: 0;
+  background: #27ae60;
+}
+
+#clearBet,
+#standBtn {
+  right: 0;
+  background: #c0392b;
+}
