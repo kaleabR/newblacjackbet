@@ -205,6 +205,7 @@ async function hit() {
 if (playerTotal > 21) {
   await delay(500); // Let the player see the card first
   alert('Bust!');   // 👈 Show alert first
+  soundLoss()
 
   // Now move cards and reset the state
   moveAllTableCardsToTopRight();
@@ -241,7 +242,6 @@ async function stand() {
     if (dealerScore > 21) {
         balance += totalBet * 2;
         message = 'Dealer busts! You win!';
-        soundLoss()
     } else if (playerScore > dealerScore) {
         balance += totalBet * 2;
         message = 'You win!';
