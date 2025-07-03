@@ -367,8 +367,8 @@ function clearHands() {
 }
 
 function updateUI() {
-  document.getElementById('balance').textContent = `Balance: $${balance}`;
-  document.getElementById('totalBet').textContent = `Total Bet: $${totalBet}`;
+  document.getElementById('balance').textContent = `Balance: ${balance} Birr`;
+  document.getElementById('totalBet').textContent = `Total Bet: ${totalBet} Birr`;
 }
 
 // Initialize game state
