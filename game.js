@@ -3,6 +3,11 @@ const suits=["♠","♥","♦","♣"],ranks=["A","2","3","4","5","6","7","8","9"
 const cardValue=r=>r==="A"?11:["K","Q","J"].includes(r)?10:parseInt(r);
 let deck=[],balance=500,totalBet=0,placedChips=[];
 let playerCards=[],dealerCards=[],dealerHiddenEl=null;
+const sound = new Audio('sound.mp3');
+function soundLoss() {
+  sound.play();
+}
+
 
 function buildDeck() {
     // Create an empty deck array
@@ -236,11 +241,13 @@ async function stand() {
     if (dealerScore > 21) {
         balance += totalBet * 2;
         message = 'Dealer busts! You win!';
+        soundLoss()
     } else if (playerScore > dealerScore) {
         balance += totalBet * 2;
         message = 'You win!';
     } else if (playerScore < dealerScore) {
         message = 'Dealer wins!';
+        soundLoss()
     } else {
         balance += totalBet; // Return the bet on tie
         message = 'Push. It\'s a tie!';
