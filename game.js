@@ -78,6 +78,7 @@ function placeBet(amount, cls) {
 
     // Show bet control buttons again
     showBetButtons();
+    showChips();
 }
 
 function showBetButtons() {
@@ -204,6 +205,7 @@ if (playerTotal > 21) {
   moveAllTableCardsToTopRight();
   clearHands();
   showBetButtons();
+  showChips();
 
   totalBet = 0;
   document.getElementById('playerScore').style.display = 'none';
@@ -397,6 +399,7 @@ function handleBust() {
   // Clear table and allow betting again
   clearHands();
   showBetButtons();
+  showChips();
 }
 
 function delay(ms) {
