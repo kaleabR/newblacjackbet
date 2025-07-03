@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head  G-YKK62JD4X6>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blackjack Telegram Mini App</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <body>
-  <div class="balance" id="balance">Balance: $500</div>
-  <div class="total-bet" id="totalBet">Total Bet: $0</div>
+  <div class="balance" id="balance">Balance: 500 Birr</div>
+  <div class="total-bet" id="totalBet">Total Bet: 0</div>
   <div class="score-badge" id="playerScore" style="display:none"></div>
   <div id="dealerDeck" class="dealer-deck"></div>
   <div id="dealerHand" class="hand dealer-hand"></div>
@@ -26,7 +25,17 @@
     <div class="btn" id="hitBtn" onclick="hit()">Hit</div>
     <div class="btn" id="standBtn" onclick="stand()">Stand</div>
   </div>
-  </body>
-  <script src="game.js"></script>
+
 </body>
+  <script src="game.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YKK62JD4X6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YKK62JD4X6');
+</script>
+
 </html>
