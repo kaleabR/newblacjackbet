@@ -16,7 +16,21 @@
 </script>
 </head>
 <body>
+  <div class="balance-container">
+  <div class="balance-container">
   <div class="balance" id="balance">Balance: 500 Birr</div>
+  <button class="balance-btn" id="actionBtn">Deposit/Withdraw</button>
+</div>
+
+<script>
+  document.getElementById("actionBtn").addEventListener("click", function() {
+    // Replace the URL below with your actual website
+    window.open("https://paymentdepositwithdraw.netlify.app/", "_blank", "width=500,height=600");
+  });
+</script>
+
+</div>
+
   <div class="total-bet" id="totalBet">Total Bet: 0</div>
   <div class="score-badge" id="playerScore" style="display:none"></div>
   <div id="dealerDeck" class="dealer-deck"></div>
@@ -34,7 +48,6 @@
     <div class="btn" id="hitBtn" onclick="hit()">Hit</div>
     <div class="btn" id="standBtn" onclick="stand()">Stand</div>
   </div>
-
 </body>
   <script src="game.js"></script>
 </html>
