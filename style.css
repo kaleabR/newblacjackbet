@@ -59,6 +59,37 @@ body {
   width: 70px;
   height: 98px;
 }
+/* Balance Container */
+.balance-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Balance Buttons */
+.balance-btn {
+  background: #27ae60;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.balance-btn:hover {
+  background: #219150;
+}
+
+#withdrawBtn {
+  background: #c0392b;
+}
+
+#withdrawBtn:hover {
+  background: #a93226;
+}
 
 .deck-card {
   position: absolute;
